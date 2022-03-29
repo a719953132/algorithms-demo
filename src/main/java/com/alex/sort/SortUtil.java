@@ -1,5 +1,8 @@
 package com.alex.sort;
 
+import java.util.Arrays;
+import java.util.Random;
+
 /**
  * @Classname SortUtil
  * @Description 排序通用工具
@@ -7,10 +10,23 @@ package com.alex.sort;
  * @Author Alex
  */
 public class SortUtil {
-    public static boolean less(Comparable v,Comparable w){
-        return v.compareTo(w) < 0;
+
+    /**
+     * 判断v是否小于w
+     * @param a
+     * @param b
+     * @return
+     */
+    public static boolean less(Comparable a,Comparable b){
+        return a.compareTo(b) < 0;
     }
 
+    /**
+     * 交换两个数
+     * @param a
+     * @param i
+     * @param j
+     */
     public static void exch(Comparable[] a,int i,int j){
         Comparable t = a[i];
         a[i] = a[j];
@@ -18,9 +34,46 @@ public class SortUtil {
 
     }
 
+    /**
+     * 打印数组
+     * @param a
+     */
     public static void show(Comparable[] a){
         for (Comparable comparable : a) {
             System.out.println(comparable);
         }
+    }
+
+    /**
+     * 排序
+     * @param a
+     */
+    public static Comparable[] sort(Comparable[] a){
+        Arrays.sort(a);
+        return a;
+    }
+
+    /**
+     * 判断数组是否相等
+     * @param a
+     * @param b
+     */
+    public static boolean equals(Comparable[] a,Comparable[] b){
+        return Arrays.equals(a,b);
+    }
+
+    /**
+     * 生成随机数组
+     * @param size
+     * @param maxValue
+     * @return
+     */
+    public static Comparable[] generateArray(int size,int maxValue){
+        Integer[] array = new Integer[size];
+        for (int i = 0; i < size; i++) {
+            array[i] = (int)(Math.random() * maxValue);
+        }
+
+        return array;
     }
 }
