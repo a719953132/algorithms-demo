@@ -63,7 +63,7 @@ public class SortUtil {
     }
 
     /**
-     * 生成随机数组
+     * 生成长度固定的随机数组
      * @param size
      * @param maxValue
      * @return
@@ -72,6 +72,22 @@ public class SortUtil {
         Integer[] array = new Integer[size];
         for (int i = 0; i < size; i++) {
             array[i] = (int)(Math.random() * maxValue);
+        }
+
+        return array;
+    }
+
+    /**
+     * 生成长度随机的随机数组
+     * @param maxSize
+     * @param maxValue
+     * @return
+     */
+    public static Comparable[] generateRandomArray(int maxSize,int maxValue){
+        Integer[] array = new  Integer[(int)((maxSize + 1) * Math.random())];
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int)((maxValue + 1) * Math.random())-(int) (maxValue * Math.random());
         }
 
         return array;
